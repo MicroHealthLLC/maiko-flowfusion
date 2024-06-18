@@ -5,7 +5,8 @@ WORKDIR /automatisch
 RUN apk add --no-cache openssl dos2unix
 
 COPY ./compose-entrypoint.sh /compose-entrypoint.sh
-RUN dos2unix /compose-entrypoint.sh
+
+RUN dos2unix /compose-entrypoint.sh && chmod +x /compose-entrypoint.sh
 
 EXPOSE 3002
 ENTRYPOINT ["sh", "/compose-entrypoint.sh"]
