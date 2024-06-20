@@ -25,6 +25,7 @@ services:
       - ENCRYPTION_KEY
       - WEBHOOK_SECRET_KEY
       - APP_SECRET_KEY
+      - WEB_APP_URL=https://flowfusion.microhealthllc.com
     volumes:
       - automatisch_storage:/automatisch/storage
   worker:
