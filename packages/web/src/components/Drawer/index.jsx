@@ -9,6 +9,9 @@ import Badge from '@mui/material/Badge';
 import ListItemLink from 'components/ListItemLink';
 import useFormatMessage from 'hooks/useFormatMessage';
 import { Drawer as BaseDrawer } from './style';
+import MenuOpenIcon from '@mui/icons-material/MenuOpen';
+import MenuIcon from '@mui/icons-material/Menu';
+import IconButton from '@mui/material/IconButton';
 
 const iOS =
   typeof navigator !== 'undefined' &&
@@ -33,7 +36,19 @@ function Drawer(props) {
     >
       {/* keep the following encapsulating `div` to have `space-between` children  */}
       <div>
-        <Toolbar />
+        <Toolbar>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="open drawer"
+            onClick={open ? onClose : onOpen}
+            sx={{ mr: 2 }}
+            data-test="drawer-menu-button"
+          >
+            {open && matchSmallScreens ? <MenuOpenIcon /> : <MenuIcon />}
+          </IconButton>
+        </Toolbar>
 
         <List sx={{ py: 0, mt: 3 }}>
           {links.map(({ Icon, primary, to, dataTest }, index) => (

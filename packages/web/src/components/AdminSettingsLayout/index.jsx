@@ -75,7 +75,7 @@ function SettingsLayout() {
   const formatMessage = useFormatMessage();
   const currentUserAbility = useCurrentUserAbility();
   const matchSmallScreens = useMediaQuery(theme.breakpoints.down('lg'));
-  const [isDrawerOpen, setDrawerOpen] = React.useState(!matchSmallScreens);
+  const [isDrawerOpen, setDrawerOpen] = React.useState(false); //React.useState(!matchSmallScreens);
   const openDrawer = () => setDrawerOpen(true);
   const closeDrawer = () => setDrawerOpen(false);
   const drawerLinks = createDrawerLinks({

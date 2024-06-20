@@ -9,7 +9,7 @@ import Container from 'components/Container';
 function Layout({ children }) {
   return (
     <>
-      <AppBar>
+      <AppBar style={{ display: "none"}}>
         <Container maxWidth="lg" disableGutters>
           <Toolbar>
             <Logo />
@@ -24,7 +24,7 @@ function Layout({ children }) {
           flex: 1,
         }}
       >
-        <Toolbar />
+        <Toolbar style={{ display: "none"}} />
         {children}
       </Box>
     </>
