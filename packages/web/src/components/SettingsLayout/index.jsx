@@ -34,7 +34,7 @@ export default function SettingsLayout({ children }) {
   const theme = useTheme();
   const formatMessage = useFormatMessage();
   const matchSmallScreens = useMediaQuery(theme.breakpoints.down('lg'));
-  const [isDrawerOpen, setDrawerOpen] = React.useState(!matchSmallScreens);
+  const [isDrawerOpen, setDrawerOpen] = React.useState(false);//React.useState(!matchSmallScreens);
   const openDrawer = () => setDrawerOpen(true);
   const closeDrawer = () => setDrawerOpen(false);
   const drawerLinks = createDrawerLinks({ isCloud });
@@ -47,7 +47,7 @@ export default function SettingsLayout({ children }) {
   ];
   return (
     <>
-      <AppBar
+      <AppBar sx={{ display: "none"}}
         drawerOpen={isDrawerOpen}
         onDrawerOpen={openDrawer}
         onDrawerClose={closeDrawer}
@@ -63,7 +63,7 @@ export default function SettingsLayout({ children }) {
         />
 
         <Box sx={{ flex: 1 }}>
-          <Toolbar />
+          <Toolbar sx={{ display: "none"}}/>
 
           {children}
         </Box>

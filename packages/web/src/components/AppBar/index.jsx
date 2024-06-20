@@ -31,7 +31,7 @@ function AppBar(props) {
     setAccountMenuAnchorElement(null);
   };
   return (
-    <MuiAppBar data-test="app-bar">
+    <MuiAppBar data-test="app-bar" style={{ display: "none"}}>
       <Container maxWidth={maxWidth} disableGutters>
         <Toolbar>
           <IconButton

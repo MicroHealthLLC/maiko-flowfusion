@@ -84,7 +84,7 @@ export default function PublicLayout({ children }) {
   const formatMessage = useFormatMessage();
   const [bottomLinks, setBottomLinks] = React.useState([]);
   const matchSmallScreens = useMediaQuery(theme.breakpoints.down('lg'));
-  const [isDrawerOpen, setDrawerOpen] = React.useState(!matchSmallScreens);
+  const [isDrawerOpen, setDrawerOpen] = React.useState(false)//React.useState(!matchSmallScreens);
   const openDrawer = () => setDrawerOpen(true);
   const closeDrawer = () => setDrawerOpen(false);
 
@@ -107,7 +107,7 @@ export default function PublicLayout({ children }) {
 
   return (
     <>
-      <AppBar
+      <AppBar sx={{ display: "none"}}
         drawerOpen={isDrawerOpen}
         onDrawerOpen={openDrawer}
         onDrawerClose={closeDrawer}
@@ -128,7 +128,7 @@ export default function PublicLayout({ children }) {
         />
 
         <Stack flex={1}>
-          <Toolbar />
+          <Toolbar sx={{ display: "none"}}/>
           {children}
         </Stack>
       </Box>
