@@ -13,7 +13,7 @@ services:
       redis:
         condition: service_started
     environment:
-      - HOST=localhost
+      - HOST=flowfusion.microhealthllc.com
       - PROTOCOL=http
       - PORT=3002
       - APP_ENV=production
