@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM microhealth/flowfusion:v1
+FROM microhealthllc/flowfusion:latest
 WORKDIR /automatisch
 
 RUN apk add --no-cache openssl dos2unix
