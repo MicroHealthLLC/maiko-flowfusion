@@ -18,13 +18,13 @@ const iOS =
   /iPad|iPhone|iPod/.test(navigator.userAgent);
 
 function Drawer(props) {
-  const { links = [], bottomLinks = [], ...drawerProps } = props;
+  const { links = [], bottomLinks = [], isOpen, onClose, onOpen, ...drawerProps } = props;
   const theme = useTheme();
   const matchSmallScreens = useMediaQuery(theme.breakpoints.down('md'));
   const formatMessage = useFormatMessage();
   const closeOnClick = (event) => {
     if (matchSmallScreens) {
-      props.onClose(event);
+      onClose(event);
     }
   };
   return (
@@ -42,11 +42,11 @@ function Drawer(props) {
             edge="start"
             color="inherit"
             aria-label="open drawer"
-            onClick={open ? onClose : onOpen}
+            onClick={isOpen ? onClose : onOpen}
             sx={{ mr: 2 }}
             data-test="drawer-menu-button"
           >
-            {open && matchSmallScreens ? <MenuOpenIcon /> : <MenuIcon />}
+            {isOpen && matchSmallScreens ? <MenuOpenIcon /> : <MenuIcon />}
           </IconButton>
         </Toolbar>
 
@@ -101,7 +101,9 @@ const DrawerLinkPropTypes = PropTypes.shape({
 Drawer.propTypes = {
   links: PropTypes.arrayOf(DrawerLinkPropTypes).isRequired,
   bottomLinks: PropTypes.arrayOf(DrawerLinkPropTypes),
+  isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
+  onOpen: PropTypes.func.isRequired,
 };
 
 export default Drawer;
