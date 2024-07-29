@@ -42,11 +42,9 @@ function Drawer(props) {
             edge="start"
             color="inherit"
             aria-label="open drawer"
-            onClick={open ? onClose : onOpen}
             sx={{ mr: 2 }}
             data-test="drawer-menu-button"
           >
-            {open && matchSmallScreens ? <MenuOpenIcon /> : <MenuIcon />}
           </IconButton>
         </Toolbar>
 

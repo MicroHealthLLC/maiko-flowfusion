@@ -13,7 +13,7 @@ services:
       redis:
         condition: service_started
     environment:
-      - HOST=flowfusion.microhealthllc.com
+      - HOST=localhost
       - PROTOCOL=http
       - PORT=3002
       - APP_ENV=production
@@ -25,6 +25,7 @@ services:
       - ENCRYPTION_KEY
       - WEBHOOK_SECRET_KEY
       - APP_SECRET_KEY
+      - MAIKO_URL=http://host.docker.internal:3000
     volumes:
       - automatisch_storage:/automatisch/storage
   worker:
@@ -45,6 +46,7 @@ services:
       - WEBHOOK_SECRET_KEY
       - APP_SECRET_KEY
       - WORKER=true
+      - MAIKO_URL=http://host.docker.internal:3000
     volumes:
       - automatisch_storage:/automatisch/storage
   postgres:
