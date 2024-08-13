@@ -1,7 +1,4 @@
 import defineAction from '../../../../helpers/define-action.js';
-import getAssistants from '../../common/getAssistants.js';
-
-const assistants = await getAssistants();
 
 export default defineAction({
   name: 'Get Response from Maiko Assistant',
@@ -15,7 +12,16 @@ export default defineAction({
       required: true,
       variables: true,
       description: 'Select a Maiko Assistant to answer your question.',
-      options: assistants,
+      source: {
+        type: 'query',
+        name: 'getDynamicData',
+        arguments: [
+          {
+            name: 'key',
+            value: 'listBots',
+          },
+        ],
+      },
     },
     {
       label: 'Question',
@@ -28,8 +34,9 @@ export default defineAction({
   ],
 
   async run($) {
+    const { host } = $.auth.data;
     const botId = $.step.parameters.botId;
-    const requestPath = `/api/query/${botId}`;
+    const requestPath = `${host}/api/query/${botId}`;
     const query = $.step.parameters.query;
 
     const headers = {

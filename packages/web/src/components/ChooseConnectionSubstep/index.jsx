@@ -25,9 +25,10 @@ import useTestConnection from 'hooks/useTestConnection';
 
 const ADD_CONNECTION_VALUE = 'ADD_CONNECTION';
 const ADD_SHARED_CONNECTION_VALUE = 'ADD_SHARED_CONNECTION';
+var appKeyGlobal = '';
 
 const optionGenerator = (connection) => ({
-  label: connection?.formattedData?.screenName ?? 'Unnamed',
+  label: connection?.formattedData?.screenName ?? appKeyGlobal+' - '+connection?.id,
   value: connection?.id,
 });
 
@@ -46,6 +47,7 @@ function ChooseConnectionSubstep(props) {
     application,
   } = props;
   const { appKey } = step;
+  appKeyGlobal = appKey;
   const formatMessage = useFormatMessage();
   const editorContext = React.useContext(EditorContext);
   const [showAddConnectionDialog, setShowAddConnectionDialog] =
