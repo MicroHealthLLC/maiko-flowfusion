@@ -12,6 +12,8 @@ if (process.env.APP_ENV === 'test') {
   dotenv.config();
 }
 
+// Your existing configuration here...
+
 const host = process.env.HOST || 'localhost';
 const protocol = process.env.PROTOCOL || 'http';
 const port = process.env.PORT || '3002';

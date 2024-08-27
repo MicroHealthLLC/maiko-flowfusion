@@ -36,7 +36,7 @@ export default defineAction({
   async run($) {
     const { host } = $.auth.data;
     const botId = $.step.parameters.botId;
-    const requestPath = `${host}/api/query/${botId}`;
+    const requestPath = `${process.env.MAIKO_URL}/api/query/${botId}`;
     const query = $.step.parameters.query;
 
     const headers = {

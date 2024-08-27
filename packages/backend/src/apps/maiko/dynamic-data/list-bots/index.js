@@ -6,7 +6,7 @@ export default {
   
     async run($) {    
       const { host } = $.auth.data;
-      const response = await axios.get(`${host}/api/getAssistantList`);
+      const response = await axios.get(`${process.env.MAIKO_URL}/api/getAssistantList`);
 
       const data = response.data;
       const bots = data.map((bot) => ({

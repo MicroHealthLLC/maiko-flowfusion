@@ -3,7 +3,7 @@ import axios from 'axios';
 const verifyCredentials = async ($) => {
   const { host } = $.auth.data;
 
-  const response = await axios.get(`${host}/api/getAssistantList`);
+  const response = await axios.get(`${process.env.MAIKO_URL}/api/getAssistantList`);
         
   if (response.status !== 200) {
       throw new Error('Network response was not ok');
