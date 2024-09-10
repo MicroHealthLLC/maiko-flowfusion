@@ -1,6 +1,6 @@
 import appConfig from './app.js';
 
-const allowedOrigins = [appConfig.webAppUrl, process.env.WEB_APP_URL, 'http://localhost:3000']; // Replace with your frontend URL
+const allowedOrigins = [appConfig.webAppUrl, process.env.WEB_APP_URL, process.env.MAIKO_URL, process.env.NEXT_PUBLIC_BASE_URL]; // Replace with your frontend URL
 
 const corsOptions = {
   origin: function (origin, callback) {
